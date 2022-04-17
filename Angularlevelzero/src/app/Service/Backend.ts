@@ -15,4 +15,15 @@ export class Backend{
   get(serviceUrl){
     return this.http.get(this.baseUrl+serviceUrl)
   }
+  post(serviceUrl,data){
+    return this.http.post(this.baseUrl+serviceUrl,data);
+  }
+  delete(serviceUrl,appendBaseUrlFlag=true){
+    if(appendBaseUrlFlag){
+      return this.http.delete(this.baseUrl+serviceUrl);
+    }else{
+      return this.http.delete(serviceUrl);
+    }
+  }
+
 }

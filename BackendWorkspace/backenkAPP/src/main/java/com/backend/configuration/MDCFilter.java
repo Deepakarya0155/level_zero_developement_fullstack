@@ -17,17 +17,24 @@ import org.springframework.security.oauth2.server.resource.authentication.Abstra
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.stereotype.Component;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class MDCFilter implements Filter{
 	
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		HttpServletRequest req=(HttpServletRequest)request;
-		JwtAuthenticationToken token=(JwtAuthenticationToken) req.getUserPrincipal();
-		Jwt jwt=(Jwt) token.getPrincipal();
-		MDC.put("appName", jwt.getClaim("preferred_username").toString());
+		try {
+			HttpServletRequest req=(HttpServletRequest)request;
+			JwtAuthenticationToken token=(JwtAuthenticationToken) req.getUserPrincipal();
+			Jwt jwt=(Jwt) token.getPrincipal();
+			MDC.put("appName", jwt.getClaim("preferred_username").toString());
+		}catch(Exception e) {
+			log.error("ERROR ::",e);
+		}
 		chain.doFilter(request, response);
 	}
 

@@ -12,18 +12,28 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from './Service/Keyclockconfig';
 import { AuthGuard } from './Service/AuthGuard';
 import { HomeComponent } from './home/home.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { PasswordMangerComponent } from './password-manger/password-manger.component';
+import { PasswordNewComponent } from './password-manger/password-new/password-new.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PasswordMangerComponent,
+    PasswordNewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,FormsModule,
     ReactiveFormsModule,HttpClientModule,
-    AppMatModule,KeycloakAngularModule
+    AppMatModule,KeycloakAngularModule, LayoutModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule
   ],
   providers: [Backend,
     {

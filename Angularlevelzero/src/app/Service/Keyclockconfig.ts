@@ -5,8 +5,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
       keycloak.init({
         config: {
           url: 'http://localhost:8090/auth',
-          realm: 't2',
-          clientId: 't22',
+          realm: 'p2',
+          clientId: 'p2c',
         }
         ,
         initOptions:{

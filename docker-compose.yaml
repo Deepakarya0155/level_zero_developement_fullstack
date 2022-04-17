@@ -37,16 +37,16 @@ services:
       # - "C:/Users/Deepa/learning/Projects/TODO/Allconfiguration/keyclock:/opt:rw"
     networks:
       - todo
-  # config-server:
-  #   image: deepakarya0155/spring-config-server:1.0.0
-  #   ports:
-  #     - "8888:8888"
-  #   environment:
-  #     SPRING_SECURITY_USER_NAME: Admin
-  #     SPRING_SECURITY_USER_PASSWORD: Admin
-  #     SPRING_CLOUD_CONFIG_SERVER_GIT_URI: /app
-  #   volumes:
-  #     - "C:/Users/Deepa/learning/git_repositoris/CenteralConfigProp:/app:rw"
+  config-server:
+    image: deepakarya0155/spring-config-server:1.0.0
+    ports:
+      - "8888:8888"
+    environment:
+      SPRING_SECURITY_USER_NAME: Admin
+      SPRING_SECURITY_USER_PASSWORD: Admin
+      SPRING_CLOUD_CONFIG_SERVER_GIT_URI: /app
+    volumes:
+      - "C:/Users/Deepa/learning/git_repositoris/CenteralConfigProp:/app:rw"
 
 networks:
   todo:
